@@ -3,30 +3,34 @@ import "./counter.css"
 function Counter() {    
 
     const [number,setNumber] =useState(0)
+    const [message,setMessage] = useState('')
 
-    function increment(){
+    const increment = ()=>{
         setNumber(number+1)
+        setMessage("");
     }
-    function decrement(){
+    const decrement = ()=>{
         if(number>0){
         setNumber(number-1)
+        setMessage("");
     }else{
-        window.alert(" you can not decrement the counter anymore");
+        setMessage("counter already have 0 as value");
     }
-    }
-    function reset(){
-        setNumber(0)
     }
     return(
         <div className="container">
+            <h1>Counter App</h1>
             <h1 className="number">{number}</h1>
+
             <button className="increment-bitton" onClick={increment}>+</button>
             <button className="decrement-bitton" onClick={decrement}>-</button>
-            <button className="reset-bitton" onClick={reset}>reset</button>
+            <button className="reset-bitton" onClick={()=>{setNumber(0)}}>reset</button>
+            
+            {
+                message.length>0 && <h1 className="warning">{message}</h1>
+            }
 
         </div>
     )
-
 }
-
 export default Counter;
