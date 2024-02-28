@@ -24,7 +24,7 @@ function Counter() {
 
             <button className="increment-bitton" onClick={increment}>+</button>
             <button className="decrement-bitton" onClick={decrement}>-</button>
-            <button className="reset-bitton" onClick={()=>{setNumber(0)}}>reset</button>
+            <button className="reset-bitton" onClick={()=>{setNumber(0);setMessage("")}}>reset</button>
             
             {
                 message.length>0 && <h1 className="warning">{message}</h1>
